@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>Admin Panel</h2>
+
+<a href="/clear"><button>Clear Messages</button></a>
+<a href="/logout"><button>Logout</button></a>
+
+<hr>
+
+<ul>
+{% for msg in messages %}
+<li>{{ msg }}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

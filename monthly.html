@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>Monthly Expense Report</h2>
+
+<table border="1">
+
+<tr>
+<th>Month</th>
+<th>Total Expense</th>
+</tr>
+
+{% for m in months %}
+
+<tr>
+<td>{{ m }}</td>
+<td>₹{{ months[m] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}
