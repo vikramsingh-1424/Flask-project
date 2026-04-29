@@ -1,1 +1,132 @@
+{% extends "layout.html" %}
 
+{% block content %}
+
+<!-- HERO SECTION -->
+
+<div class="hero">
+
+<h1>Smart Expense Tracker</h1>
+
+<p>Track, analyze and control your daily expenses easily.</p>
+
+<a href="/add">
+<button class="hero-btn">Start Tracking</button>
+</a>
+
+</div>
+
+
+<!-- FEATURES SECTION -->
+
+<h2 class="section-title">Key Features</h2>
+
+<div class="features">
+
+<div class="card">
+<h3>💰 Add Expenses</h3>
+<p>Quickly record your daily spending.</p>
+</div>
+
+<div class="card">
+<h3>📊 Visual Charts</h3>
+<p>See your spending patterns with graphs.</p>
+</div>
+
+<div class="card">
+<h3>📅 Monthly Reports</h3>
+<p>Track how much you spend every month.</p>
+</div>
+
+<div class="card">
+<h3>🗑 Manage Expenses</h3>
+<p>Delete or organize expenses easily.</p>
+</div>
+
+</div>
+
+
+<!-- HOW IT WORKS -->
+
+<h2 class="section-title">How It Works</h2>
+
+<div class="steps">
+
+<div class="step">
+<h3>1️⃣ Add Expense</h3>
+<p>Enter your expense details like title, amount and category.</p>
+</div>
+
+<div class="step">
+<h3>2️⃣ Track Spending</h3>
+<p>View all expenses in a simple table.</p>
+</div>
+
+<div class="step">
+<h3>3️⃣ Analyze Data</h3>
+<p>See charts and monthly reports.</p>
+</div>
+
+</div>
+
+
+<!-- QUICK ACTIONS -->
+
+<h2 class="section-title">Quick Actions</h2>
+
+<div class="actions">
+
+<a href="/add">
+<button>Add Expense</button>
+</a>
+
+<a href="/expenses">
+<button>View Expenses</button>
+</a>
+
+<a href="/monthly">
+<button>Monthly Report</button>
+</a>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+<p>Expense Tracker Project | Built with Flask</p>
+
+</div>
+<script>
+
+function animateValue(id, start, end, duration){
+
+let range = end - start
+let current = start
+let increment = end > start ? 1 : -1
+
+let stepTime = Math.abs(Math.floor(duration / (range || 1)))
+
+let obj = document.getElementById(id)
+
+let timer = setInterval(function(){
+
+current += increment
+obj.textContent = current
+
+if(current == end){
+clearInterval(timer)
+}
+
+}, stepTime)
+
+}
+
+animateValue("expenseCount",0,{{ total_expense }},1000)
+animateValue("entryCount",0,{{ total_entries }},1000)
+animateValue("categoryCount",0,{{ total_categories }},1000)
+animateValue("visitCount",0,{{ visits }},1000)
+
+</script>
+{% endblock %}
